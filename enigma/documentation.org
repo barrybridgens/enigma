@@ -1,0 +1,7 @@
+Documentation for Barry's Enigma simulator
+==========================================
+
+* Design decisions
+** Which class should "own" the rotor positions?
+The machine class should own the positions of the rotors
+The rotor class should own the ring setting
