@@ -17,14 +17,44 @@ class Rotor:
     # The internal wiring of the rotor - determines which letter is translated to what
     self.wiring = 'ZYXWVUTSRQPONMLKJIHGFEDCBA'    # default - will be changed for "real" rotors
     # The notch position where stepping this rotor will cause the "next" rotor to step
-    self.notch_position = 20    # default - will be changed for "real" rotors
+    self.notch_position = 'N'    # default - will be changed for "real" rotors
     # The ring setting - gives an offset from the "external" position to the actual wiring position
-    self.ring_setting = 'A'
+    self.ring_setting = 'Z'
 
-  def get_mapping(self, input_letter):
+  def get_left_right_mapping(self, input_letter):
     wiring_position = letter_to_number(input_letter)
-    wiring_position = (wiring_position + letter_to_number(self.ring_setting)) % 26
+    wiring_position = (wiring_position + letter_to_number(self.ring_setting) + 1) % 26
     return(self.wiring[wiring_position])
+
+  def get_right_left_mapping(self, input_letter):
+    for x in range(0, 26):
+      if (self.get_left_right_mapping(number_to_letter(x)) == input_letter):
+        output_letter = number_to_letter(x)
+    return(output_letter)
+
 
   def set_ring_setting(self, letter):
     self.ring_setting = letter
+
+  def is_notch(self, rotor_position):
+    return(self.notch_position == rotor_position)
+
+
+
+class I_Rotor(Rotor):
+
+  def __init__(self):
+    Rotor.__init__(self)
+    # The internal wiring of the rotor - determines which letter is translated to what
+    self.wiring = 'EKMFLGDQVZNTOWYHXUSPAIBRCJ'
+    # The notch position where stepping this rotor will cause the "next" rotor to step
+    self.notch_position = 'Q'    
+
+class II_Rotor(Rotor):
+
+  def __init__(self):
+    Rotor.__init__(self)
+    # The internal wiring of the rotor - determines which letter is translated to what
+    self.wiring = 'AJDKSIRUXBLHWTMCQGZNPYFVOE'
+    # The notch position where stepping this rotor will cause the "next" rotor to step
+    self.notch_position = 'E' 

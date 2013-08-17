@@ -5,3 +5,6 @@ Documentation for Barry's Enigma simulator
 ** Which class should "own" the rotor positions?
 The machine class should own the positions of the rotors
 The rotor class should own the ring setting
+
+* Notes
+A ring setting of 'Z' is actually the "default" setting (not 'A' !!!)
