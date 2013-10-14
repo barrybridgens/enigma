@@ -58,3 +58,30 @@ class II_Rotor(Rotor):
     self.wiring = 'AJDKSIRUXBLHWTMCQGZNPYFVOE'
     # The notch position where stepping this rotor will cause the "next" rotor to step
     self.notch_position = 'E' 
+
+class III_Rotor(Rotor):
+
+  def __init__(self):
+    Rotor.__init__(self)
+    # The internal wiring of the rotor - determines which letter is translated to what
+    self.wiring = 'BDFHJLCPRTXVZNYEIWGAKMUSQO'
+    # The notch position where stepping this rotor will cause the "next" rotor to step
+    self.notch_position = 'V' 
+
+class IV_Rotor(Rotor):
+
+  def __init__(self):
+    Rotor.__init__(self)
+    # The internal wiring of the rotor - determines which letter is translated to what
+    self.wiring = 'ESOVPZJAYQUIRHXLNFTGKDCMWB'
+    # The notch position where stepping this rotor will cause the "next" rotor to step
+    self.notch_position = 'J' 
+
+class V_Rotor(Rotor):
+
+  def __init__(self):
+    Rotor.__init__(self)
+    # The internal wiring of the rotor - determines which letter is translated to what
+    self.wiring = 'VZBRGITYUPSDNHLXAWMJQOFECK'
+    # The notch position where stepping this rotor will cause the "next" rotor to step
+    self.notch_position = 'Z' 

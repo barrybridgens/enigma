@@ -9,6 +9,11 @@ class TestRotor(unittest.TestCase):
 
     def setUp(self):
         self.rotor = rotor.Rotor()
+        self.I_rotor = rotor.I_Rotor()
+        self.II_rotor = rotor.II_Rotor()
+        self.III_rotor = rotor.III_Rotor()
+        self.IV_rotor = rotor.IV_Rotor()
+        self.V_rotor = rotor.V_Rotor()
 
     def tearDown(self):
         pass
@@ -32,6 +37,40 @@ class TestRotor(unittest.TestCase):
             else:
                 self.assertFalse(self.rotor.is_notch(enigma_utility.number_to_letter(num)))
 
+    def test_rotor_I_mapping(self):
+        mapping = 'EKMFLGDQVZNTOWYHXUSPAIBRCJ'
+        for num in range(0, 26):
+            input_char = enigma_utility.number_to_letter(num)
+            output_char = mapping[num]
+            self.assertEqual(self.I_rotor.get_left_right_mapping(input_char), output_char)
+
+    def test_rotor_II_mapping(self):
+        mapping = 'AJDKSIRUXBLHWTMCQGZNPYFVOE'
+        for num in range(0, 26):
+            input_char = enigma_utility.number_to_letter(num)
+            output_char = mapping[num]
+            self.assertEqual(self.II_rotor.get_left_right_mapping(input_char), output_char)
+
+    def test_rotor_III_mapping(self):
+        mapping = 'BDFHJLCPRTXVZNYEIWGAKMUSQO'
+        for num in range(0, 26):
+            input_char = enigma_utility.number_to_letter(num)
+            output_char = mapping[num]
+            self.assertEqual(self.III_rotor.get_left_right_mapping(input_char), output_char)
+
+    def test_rotor_IV_mapping(self):
+        mapping = 'ESOVPZJAYQUIRHXLNFTGKDCMWB'
+        for num in range(0, 26):
+            input_char = enigma_utility.number_to_letter(num)
+            output_char = mapping[num]
+            self.assertEqual(self.IV_rotor.get_left_right_mapping(input_char), output_char)
+
+    def test_rotor_V_mapping(self):
+        mapping = 'VZBRGITYUPSDNHLXAWMJQOFECK'
+        for num in range(0, 26):
+            input_char = enigma_utility.number_to_letter(num)
+            output_char = mapping[num]
+            self.assertEqual(self.V_rotor.get_left_right_mapping(input_char), output_char)
 
 if __name__ == '__main__':
     unittest.main()
